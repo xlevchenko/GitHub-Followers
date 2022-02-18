@@ -22,6 +22,7 @@ class GFButton: UIButton {
         super.init(frame: .zero)
         self.backgroundColor = backgraundColor
         self.setTitle(title, for: .normal)
+        configure()
     }
     
     private func configure() {
