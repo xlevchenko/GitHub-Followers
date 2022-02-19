@@ -16,6 +16,10 @@
 		604FD9A927BD7A6400D28117 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FD9A827BD7A6400D28117 /* GFButton.swift */; };
 		604FD9AB27BD7E8100D28117 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FD9AA27BD7E8100D28117 /* GFTextField.swift */; };
 		60AB41C827BFD0C000A7B18A /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB41C727BFD0C000A7B18A /* FollowerListVC.swift */; };
+		60AB41CA27BFE0B700A7B18A /* GFTitleLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB41C927BFE0B700A7B18A /* GFTitleLable.swift */; };
+		60AB41CC27BFE64800A7B18A /* GFBodyLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB41CB27BFE64800A7B18A /* GFBodyLable.swift */; };
+		60AB41CE27C0282200A7B18A /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB41CD27C0282200A7B18A /* GFAlertVC.swift */; };
+		60AB41D027C03B6D00A7B18A /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB41CF27C03B6D00A7B18A /* UIViewController + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		604FD9A827BD7A6400D28117 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		604FD9AA27BD7E8100D28117 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		60AB41C727BFD0C000A7B18A /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		60AB41C927BFE0B700A7B18A /* GFTitleLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLable.swift; sourceTree = "<group>"; };
+		60AB41CB27BFE64800A7B18A /* GFBodyLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLable.swift; sourceTree = "<group>"; };
+		60AB41CD27C0282200A7B18A /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
+		60AB41CF27C03B6D00A7B18A /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +70,54 @@
 		604FD98F27BCEFEA00D28117 /* GitHub Followers */ = {
 			isa = PBXGroup;
 			children = (
-				604FD99027BCEFEA00D28117 /* AppDelegate.swift */,
-				604FD99227BCEFEA00D28117 /* SceneDelegate.swift */,
+				60C38E9927C0F4EA001A5FFF /* Extensions */,
+				60C38E9827C0F456001A5FFF /* Custom Views */,
+				60C38E9727C0F3D7001A5FFF /* Screens */,
+				60C38E9A27C0F584001A5FFF /* Support */,
+			);
+			path = "GitHub Followers";
+			sourceTree = "<group>";
+		};
+		60C38E9727C0F3D7001A5FFF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
 				604FD9A427BD173200D28117 /* SearchVC.swift */,
 				60AB41C727BFD0C000A7B18A /* FollowerListVC.swift */,
 				604FD9A627BD179F00D28117 /* FavoritesListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		60C38E9827C0F456001A5FFF /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
 				604FD9A827BD7A6400D28117 /* GFButton.swift */,
 				604FD9AA27BD7E8100D28117 /* GFTextField.swift */,
+				60AB41C927BFE0B700A7B18A /* GFTitleLable.swift */,
+				60AB41CB27BFE64800A7B18A /* GFBodyLable.swift */,
+				60AB41CD27C0282200A7B18A /* GFAlertVC.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		60C38E9927C0F4EA001A5FFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				60AB41CF27C03B6D00A7B18A /* UIViewController + Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		60C38E9A27C0F584001A5FFF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				604FD99027BCEFEA00D28117 /* AppDelegate.swift */,
+				604FD99227BCEFEA00D28117 /* SceneDelegate.swift */,
 				604FD99927BCEFEB00D28117 /* Assets.xcassets */,
 				604FD99B27BCEFEB00D28117 /* LaunchScreen.storyboard */,
 				604FD99E27BCEFEB00D28117 /* Info.plist */,
 			);
-			path = "GitHub Followers";
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +191,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				604FD9AB27BD7E8100D28117 /* GFTextField.swift in Sources */,
+				60AB41CC27BFE64800A7B18A /* GFBodyLable.swift in Sources */,
+				60AB41D027C03B6D00A7B18A /* UIViewController + Ext.swift in Sources */,
 				604FD9A727BD179F00D28117 /* FavoritesListVC.swift in Sources */,
 				604FD9A927BD7A6400D28117 /* GFButton.swift in Sources */,
+				60AB41CE27C0282200A7B18A /* GFAlertVC.swift in Sources */,
 				604FD9A527BD173200D28117 /* SearchVC.swift in Sources */,
+				60AB41CA27BFE0B700A7B18A /* GFTitleLable.swift in Sources */,
 				60AB41C827BFD0C000A7B18A /* FollowerListVC.swift in Sources */,
 				604FD99127BCEFEA00D28117 /* AppDelegate.swift in Sources */,
 				604FD99327BCEFEA00D28117 /* SceneDelegate.swift in Sources */,
@@ -224,7 +272,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -279,6 +327,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -295,11 +344,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 52244XZHVN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GitHub Followers/Info.plist";
+				INFOPLIST_FILE = "GitHub Followers/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +372,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 52244XZHVN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GitHub Followers/Info.plist";
+				INFOPLIST_FILE = "GitHub Followers/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
