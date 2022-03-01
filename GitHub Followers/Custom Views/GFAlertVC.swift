@@ -28,7 +28,6 @@ class GFAlertVC: UIViewController {
         self.buttomTitle = buttomTitle
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,7 +42,6 @@ class GFAlertVC: UIViewController {
         configureActionButtom()
         configureMessageLable()
     }
-    
     
     func configureContainerView() {
         view.addSubview(containerView)
@@ -61,7 +59,6 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    
     func configureTitleLable() {
         containerView.addSubview(titleLable)
         titleLable.text = alertTitle ?? "Something went wrong"
@@ -73,7 +70,6 @@ class GFAlertVC: UIViewController {
             titleLable.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
-    
     
     func configureActionButtom() {
         containerView.addSubview(actionButtom)
