@@ -41,48 +41,19 @@ class FollowerListVC: UIViewController {
     
     
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
     
-    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
-//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                             heightDimension: .fractionalHeight(1.0))
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                              heightDimension: .absolute(44))
-//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-//        let spacing = CGFloat(10)
-//        group.interItemSpacing = .fixed(spacing)
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.interGroupSpacing = spacing
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
-//
-//        let layout = UICollectionViewCompositionalLayout(section: section)
-         // return UICollectionViewLayout()
-    //}
-        let width = view.bounds.width
-        let padding: CGFloat = 5
-        let minimumItemSpacing: CGFloat = 10
-        let availableWdith = width - (padding * 2) - (minimumItemSpacing * 2)
-        let itemWidth = availableWdith / 3
-
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-
-        return flowLayout
-    }
+    
     
     
     func getFollower() {
-        NetworkManager.shared.getFollower(for: username, page: 1) { result in
-            
+        NetworkManager.shared.getFollower(for: username, page: 1) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let followers):
                 self.followers = followers
