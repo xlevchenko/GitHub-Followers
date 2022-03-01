@@ -20,6 +20,7 @@ class FollowerCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureAvatar()
+        configureLable()
     }
     
     required init?(coder: NSCoder) {
@@ -37,9 +38,9 @@ class FollowerCell: UICollectionViewCell {
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.widthAnchor)
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100)
         ])
-        
     }
     
     private func configureLable() {

@@ -9,8 +9,15 @@ import UIKit
 
 class FollowerListVC: UIViewController {
 
+    enum Section {
+        case main
+    }
+    
     var username: String! = nil
+    var followers: [Follower] = []
+    
     var collectionView: UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +25,7 @@ class FollowerListVC: UIViewController {
         configureViewController()
         configureCollectionView()
         getFollower()
+        configureDataSource()
     }
     
     
@@ -31,22 +39,76 @@ class FollowerListVC: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
+    
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
+    
+    
+    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
+//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                             heightDimension: .fractionalHeight(1.0))
+//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+//
+//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                              heightDimension: .absolute(44))
+//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+//        let spacing = CGFloat(10)
+//        group.interItemSpacing = .fixed(spacing)
+//
+//        let section = NSCollectionLayoutSection(group: group)
+//        section.interGroupSpacing = spacing
+//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+//
+//        let layout = UICollectionViewCompositionalLayout(section: section)
+         // return UICollectionViewLayout()
+    //}
+        let width = view.bounds.width
+        let padding: CGFloat = 5
+        let minimumItemSpacing: CGFloat = 10
+        let availableWdith = width - (padding * 2) - (minimumItemSpacing * 2)
+        let itemWidth = availableWdith / 3
+
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+
+        return flowLayout
+    }
+    
     
     func getFollower() {
         NetworkManager.shared.getFollower(for: username, page: 1) { result in
             
             switch result {
             case .success(let followers):
-                print(followers)
+                self.followers = followers
+                self.updateData()
+                
             case .failure(let error):
                 self.presentAlertOnMainTread(title: "Bad Staff Happend", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+            cell.set(follower: follower)
+            return cell
+        })
+    }
+    
+    func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(followers)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
 }
+   

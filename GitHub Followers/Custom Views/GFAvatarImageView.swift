@@ -23,6 +23,7 @@ class GFAvatarImageView: UIImageView {
         layer.cornerRadius = 10
         clipsToBounds = true
         image = placeholderImage
+        sizeThatFits(CGSize(width: 25, height: 25))
         translatesAutoresizingMaskIntoConstraints = false
         
     }
