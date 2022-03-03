@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GitHub Followers
 //
-//  Created by Olexsii Levchenko on 2/23/22.
+//  Created by Olexsii Levchenko on 3/3/22.
 //
 
 import Foundation
