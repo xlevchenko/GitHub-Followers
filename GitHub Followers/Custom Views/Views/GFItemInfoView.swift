@@ -16,7 +16,7 @@ enum ItemInfoType {
 class GFItemInfoView: UIView {
 
     let symbolImageView = UIImageView()
-    let titleLable = GFTitleLable(textAlignment: .left, fontSize: 14)
+    let titleLable = GFTitleLable(textAlignment: .right, fontSize: 14)
     let countLable = GFTitleLable(textAlignment: .center, fontSize: 14)
     
     override init(frame: CGRect) {
@@ -40,11 +40,10 @@ class GFItemInfoView: UIView {
         NSLayoutConstraint.activate([
             symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
             symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            symbolImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             symbolImageView.widthAnchor.constraint(equalToConstant: 20),
             symbolImageView.heightAnchor.constraint(equalToConstant: 20),
             
-            titleLable.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
+            titleLable.topAnchor.constraint(equalTo: symbolImageView.topAnchor),
             titleLable.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 12),
             titleLable.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             titleLable.heightAnchor.constraint(equalToConstant: 18),
