@@ -134,7 +134,7 @@ extension FollowerListVC: UICollectionViewDelegate {
     }
     
     @objc func addButtonTappeed() {
-        print("Add Tapp")
+        
     }
 }
 
