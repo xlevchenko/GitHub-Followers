@@ -133,7 +133,5 @@ extension UserInfoVC: UserInfoVCDelegate {
         }
         delegate.didRequestFollowers(for: user.login)
         dismssVC()
-    }
-    
-    
+    }  
 }

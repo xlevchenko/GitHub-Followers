@@ -32,9 +32,10 @@ enum PersistenceManager {
                     }
                     retrievedFavorites.append(favorite)
                 case .remove:
+                    
                     retrievedFavorites.removeAll { $0.login == favorite.login }
-                    completed(save(favoritetes: favorites))
                 }
+                completed(save(favoritetes: retrievedFavorites))
             case .failure(let error):
                 completed(error)
             }
