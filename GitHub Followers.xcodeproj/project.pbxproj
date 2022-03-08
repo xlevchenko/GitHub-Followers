@@ -39,6 +39,7 @@
 		60B3053227C6670D00C88DB1 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3053127C6670D00C88DB1 /* FollowerCell.swift */; };
 		60B3053427C6686400C88DB1 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3053327C6686400C88DB1 /* GFAvatarImageView.swift */; };
 		60BCCDDF27D77B670050E7E8 /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BCCDDE27D77B670050E7E8 /* GFTabBarController.swift */; };
+		60BCCDE127D7E2770050E7E8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60BCCDE027D7E2770050E7E8 /* README.md */; };
 		60C1A73E27C29C0B0032E1BF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1A73D27C29C0B0032E1BF /* Follower.swift */; };
 		60C1A74027C29DF70032E1BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1A73F27C29DF70032E1BF /* User.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		60B3053127C6670D00C88DB1 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		60B3053327C6686400C88DB1 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		60BCCDDE27D77B670050E7E8 /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
+		60BCCDE027D7E2770050E7E8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		60C1A73D27C29C0B0032E1BF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		60C1A73F27C29DF70032E1BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60C1A74527C2CFA10032E1BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				60C38E9727C0F3D7001A5FFF /* Screens */,
 				60C38E9A27C0F584001A5FFF /* Support */,
 				60C1A74527C2CFA10032E1BF /* Info.plist */,
+				60BCCDE027D7E2770050E7E8 /* README.md */,
 			);
 			path = "GitHub Followers";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BCCDE127D7E2770050E7E8 /* README.md in Resources */,
 				604FD99D27BCEFEB00D28117 /* LaunchScreen.storyboard in Resources */,
 				604FD99A27BCEFEB00D28117 /* Assets.xcassets in Resources */,
 			);
