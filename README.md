@@ -17,7 +17,7 @@ A brief description of what this project does and who it's for
 - No 3rd Party Libraries
 ## Design:
 
-![App Screenshot](https://postimg.cc/NLCCRvK5)
+![xxx](https://user-images.githubusercontent.com/34953510/157311412-8d538b23-ad81-45d4-9f54-2f201eaaf68a.jpg)
 
 ## Details:
 
