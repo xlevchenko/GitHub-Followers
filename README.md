@@ -1,7 +1,7 @@
 
 # GitHub Followers 
 
-A brief description of what this project does and who it's for
+The application allows you to see the subscribers of the selected user. Add the selected users to the Favorites list. Opens the user's page in the Safari browser. Search through a list of users. It is also possible to view the subscribers of the selected user. Using the GitHub API. 100% programmatic UI - No Storyboard.
 
 
 ## App Premise:
@@ -15,6 +15,15 @@ A brief description of what this project does and who it's for
 
 - 100% programmatic UI - No Storyboard
 - No 3rd Party Libraries
+- Created a network request using the GitHub API
+- Download and cache images
+- Created custom alerts to display errors
+- Used UICollectionView and UITableView
+- Update data using UICollectionViewDiffableDataSource
+- Added Search Controller to the project
+- Parse JSON
+- Stored data using UserDefaults
+
 ## Design:
 
 ![xxx](https://user-images.githubusercontent.com/34953510/157311412-8d538b23-ad81-45d4-9f54-2f201eaaf68a.jpg)
@@ -24,4 +33,9 @@ A brief description of what this project does and who it's for
 - Use the GitHub API - No authentication needed 
     - Followers endpoint - https://developer.github.com/v3/users/followers/
     - User info endpoint - https://developer.github.com/v3/users/
-- When showing more information about a user, what information you display is up to you. If you were creating this product, what information do you think users want to see?
+- Using the API we display information about the user. No authorization is required to use.
+
+## How to run the application?:
+
+- Cloning this repository and run from Xcode
+Does not require additional settings
