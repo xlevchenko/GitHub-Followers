@@ -38,4 +38,4 @@ The application allows you to see the subscribers of the selected user. Add the 
 ## How to run the application?:
 
 - Cloning this repository and run from Xcode
-Does not require additional settings
+- Does't require additional settings

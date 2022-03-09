@@ -9,10 +9,10 @@ import UIKit
 
 class GFAlertVC: UIViewController {
     
-    let containerView = UIView()
-    let titleLable = GFTitleLable(textAlignment: .center, fontSize: 20)
-    let messageLable = GFBodyLable(textAlignment: .center)
-    let actionButtom = GFButton(backgraundColor: .systemPink, title: "Ok")
+    let containerView   = GFAlertContainerView()
+    let titleLable      = GFTitleLable(textAlignment: .center, fontSize: 20)
+    let messageLable    = GFBodyLable(textAlignment: .center)
+    let actionButtom    = GFButton(backgraundColor: .systemPink, title: "Ok")
     
     
     var alertTitle: String?
@@ -23,9 +23,10 @@ class GFAlertVC: UIViewController {
     
     init(alertTitle: String, message: String, buttomTitle: String) {
         super.init(nibName: nil, bundle: nil)
-        self.alertTitle = alertTitle
-        self.message = message
-        self.buttomTitle = buttomTitle
+        
+        self.alertTitle     = alertTitle
+        self.message        = message
+        self.buttomTitle    = buttomTitle
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +37,7 @@ class GFAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         configureContainerView()
         configureTitleLable()
         configureActionButtom()
@@ -45,11 +46,7 @@ class GFAlertVC: UIViewController {
     
     func configureContainerView() {
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -86,8 +83,8 @@ class GFAlertVC: UIViewController {
     
     func configureMessageLable() {
         containerView.addSubview(messageLable)
-        messageLable.text = message ?? "Unable  to complete requs"
-        messageLable.numberOfLines = 4
+        messageLable.text           = message ?? "Unable  to complete requs"
+        messageLable.numberOfLines  = 4
         
         NSLayoutConstraint.activate([
             messageLable.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 8),

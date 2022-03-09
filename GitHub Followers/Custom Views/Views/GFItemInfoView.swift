@@ -12,12 +12,11 @@ enum ItemInfoType {
     case repos, gists, followers, following
 }
 
-
 class GFItemInfoView: UIView {
 
-    let symbolImageView = UIImageView()
-    let titleLable = GFTitleLable(textAlignment: .right, fontSize: 14)
-    let countLable = GFTitleLable(textAlignment: .center, fontSize: 14)
+    let symbolImageView     = UIImageView()
+    let titleLable          = GFTitleLable(textAlignment: .right, fontSize: 14)
+    let countLable          = GFTitleLable(textAlignment: .center, fontSize: 14)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,9 +32,10 @@ class GFItemInfoView: UIView {
         addSubview(titleLable)
         addSubview(countLable)
         
-        symbolImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         symbolImageView.contentMode = .scaleAspectFill
-        symbolImageView.tintColor = .label
+        symbolImageView.tintColor   = .label
+        symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -58,18 +58,18 @@ class GFItemInfoView: UIView {
     func set(itemInfoType: ItemInfoType, withCount count: Int) {
         switch itemInfoType {
         case .repos:
-            symbolImageView.image = UIImage(systemName: SFSymbols.repos)
-            titleLable.text = "Public Repos"
+            symbolImageView.image   = UIImage(systemName: SFSymbols.repos)
+            titleLable.text         = "Public Repos"
         case .gists:
-            symbolImageView.image = UIImage(systemName: SFSymbols.gists)
-            titleLable.text = "Public Gists"
+            symbolImageView.image   = UIImage(systemName: SFSymbols.gists)
+            titleLable.text         = "Public Gists"
         case .followers:
-            symbolImageView.image = UIImage(systemName: SFSymbols.followers)
-            titleLable.text = "Followers"
+            symbolImageView.image   = UIImage(systemName: SFSymbols.followers)
+            titleLable.text         = "Followers"
         case .following:
-            symbolImageView.image = UIImage(systemName: SFSymbols.following)
-            titleLable.text = "Following"
+            symbolImageView.image   = UIImage(systemName: SFSymbols.following)
+            titleLable.text         = "Following"
         }
-        countLable.text = String(count)
+        countLable.text             = String(count)
     }
 }

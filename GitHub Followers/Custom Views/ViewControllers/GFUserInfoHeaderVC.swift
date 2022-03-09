@@ -9,12 +9,12 @@ import UIKit
 
 class GFUserInfoHeaderVC: UIViewController {
     
-    let avatarImageView = GFAvatarImageView(frame: .zero)
-    let userNameLable = GFTitleLable(textAlignment: .left, fontSize: 34)
-    let nameLable = GFSecondaryTitleLable(fontSize: 18)
-    let locationImageView = UIImageView()
-    let locationLable = GFSecondaryTitleLable(fontSize: 18)
-    let bioLable = GFBodyLable(textAlignment: .left)
+    let avatarImageView    = GFAvatarImageView(frame: .zero)
+    let userNameLable      = GFTitleLable(textAlignment: .left, fontSize: 34)
+    let nameLable          = GFSecondaryTitleLable(fontSize: 18)
+    let locationImageView  = UIImageView()
+    let locationLable      = GFSecondaryTitleLable(fontSize: 18)
+    let bioLable           = GFBodyLable(textAlignment: .left)
     
     var user: User!
     
@@ -35,16 +35,23 @@ class GFUserInfoHeaderVC: UIViewController {
     }
     
     func configureUIElements() {
-        avatarImageView.downloadImage(from: user.avatarUrl)
-        userNameLable.text = user.login
-        nameLable.text = user.name ?? ""
-        locationLable.text = user.location ?? "No Location"
-        bioLable.text = user.bio ?? "No bio available"
-        bioLable.numberOfLines = 3
+        downloadAvatarImage()
+        userNameLable.text          = user.login
+        nameLable.text              = user.name ?? ""
+        locationLable.text          = user.location ?? "No Location"
+        bioLable.text               = user.bio ?? "No bio available"
+        bioLable.numberOfLines      = 3
         
-        locationImageView.image = UIImage(systemName: SFSymbols.location)
+        locationImageView.image     = UIImage(systemName: SFSymbols.location)
         locationImageView.tintColor = .secondaryLabel
         
+    }
+    
+    func downloadAvatarImage() {
+        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
     }
     
     func addSubview() {

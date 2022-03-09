@@ -9,8 +9,8 @@ import UIKit
 
 class GFEmptyStateView: UIView {
     
-    let massageLable = GFTitleLable(textAlignment: .center, fontSize: 28)
-    let logoImageView = UIImageView()
+    let massageLable    = GFTitleLable(textAlignment: .center, fontSize: 28)
+    let logoImageView   = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,19 +22,20 @@ class GFEmptyStateView: UIView {
     }
     
     
-    init(massage: String) {
-        super.init(frame: .zero)
+    convenience init(massage: String) {
+        self.init(frame: .zero)
         massageLable.text = massage
-        configure()
     }
+    
     private func configure() {
         
         addSubview(massageLable)
-        massageLable.numberOfLines = 3
-        massageLable.textColor = .secondaryLabel
-        
         addSubview(logoImageView)
-        logoImageView.image = UIImage(named: "empty-state-logo")
+        
+        massageLable.numberOfLines  = 3
+        massageLable.textColor      = .secondaryLabel
+
+        logoImageView.image         = UIImage(named: "empty-state-logo")
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

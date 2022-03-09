@@ -9,10 +9,10 @@ import UIKit
 
 class GFItemInfoVC: UIViewController {
     
-    let stackView = UIStackView()
+    let stackView       = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()
-    let actionButton = GFButton()
+    let actionButton    = GFButton()
     
     var user: User!
     weak var delegate: UserInfoVCDelegate!
@@ -40,13 +40,13 @@ class GFItemInfoVC: UIViewController {
     
     private func configureBackgroundView() {
         view.layer.cornerRadius = 18
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor    = .secondarySystemBackground
     }
     
     
     private func configureStackView() {
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.axis          = .horizontal
+        stackView.distribution  = .equalSpacing
         
         stackView.addArrangedSubview(itemInfoViewOne)
         stackView.addArrangedSubview(itemInfoViewTwo)

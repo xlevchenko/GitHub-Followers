@@ -18,18 +18,17 @@ class GFBodyLable: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
+    convenience init(textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
-        configure()
     }
     
     private func configure() {
-        font = UIFont.preferredFont(forTextStyle: .body)
-        textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        font                        = UIFont.preferredFont(forTextStyle: .body)
+        textColor                   = .secondaryLabel
+        adjustsFontSizeToFitWidth   = true
+        minimumScaleFactor          = 0.75
+        lineBreakMode               = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
 
