@@ -9,7 +9,7 @@ import UIKit
 
 class GFEmptyStateView: UIView {
     
-    let massageLable    = GFTitleLable(textAlignment: .center, fontSize: 28)
+    let messageLabel    = GFTitleLable(textAlignment: .center, fontSize: 28)
     let logoImageView   = UIImageView()
 
     override init(frame: CGRect) {
@@ -21,33 +21,47 @@ class GFEmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     convenience init(massage: String) {
         self.init(frame: .zero)
-        massageLable.text = massage
+        messageLabel.text = massage
     }
     
     private func configure() {
+        configureMessageLabel()
+        configureLogoImage()
+    }
+    
+    private func configureMessageLabel() {
+        addSubview(messageLabel)
         
-        addSubview(massageLable)
-        addSubview(logoImageView)
-        
-        massageLable.numberOfLines  = 3
-        massageLable.textColor      = .secondaryLabel
+        messageLabel.numberOfLines  = 3
+        messageLabel.textColor      = .secondaryLabel
 
-        logoImageView.image         = UIImage(named: "empty-state-logo")
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        let lableCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -80 : -150
+        let messageLableCenterYConstraint = messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: lableCenterYConstant)
+           messageLableCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
-            massageLable.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
-            massageLable.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            massageLable.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            massageLable.heightAnchor.constraint(equalToConstant: 200),
-            
+            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            messageLabel.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func configureLogoImage() {
+        addSubview(logoImageView)
+        
+        logoImageView.image = Images.emptyStateLogo
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let logoButtomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -80 : 40
+        let logoImageViewButtomConstraint = logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoButtomConstant)
+           logoImageViewButtomConstraint.isActive = true
+        
+        NSLayoutConstraint.activate([
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 30)
         ])
     }
 }
