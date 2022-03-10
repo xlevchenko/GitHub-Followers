@@ -13,13 +13,9 @@ class FollowerCell: UICollectionViewCell {
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let usernameLable   = GFTitleLable(textAlignment: .center, fontSize: 16)
     
-    
-    let padding: CGFloat = 8
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureAvatar()
-        configureLable()
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -34,22 +30,18 @@ class FollowerCell: UICollectionViewCell {
         }
     }
     
-    private func configureAvatar() {
-        addSubview(avatarImageView)
+    private func configure() {
+        addSubviews(avatarImageView, usernameLable)
+        
+        let padding: CGFloat = 8
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100)
-        ])
-    }
-    
-    private func configureLable() {
-        addSubview(usernameLable)
-        
-        NSLayoutConstraint.activate([
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            
             usernameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
             usernameLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             usernameLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),

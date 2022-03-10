@@ -28,10 +28,7 @@ class GFItemInfoView: UIView {
     }
     
     private func configure() {
-        addSubview(symbolImageView)
-        addSubview(titleLable)
-        addSubview(countLable)
-        
+        addSubviews(symbolImageView, titleLable, countLable)
         
         symbolImageView.contentMode = .scaleAspectFill
         symbolImageView.tintColor   = .label
