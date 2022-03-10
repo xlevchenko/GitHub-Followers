@@ -38,6 +38,6 @@ class GFFollowerItemVC: GFItemInfoVC {
     }
     
     override func actionButtonTapped() {
-        delegate.didTapGitHubProfile(for: user)
+        delegate.didTapGetFollowers(for: user)
     }
 }
