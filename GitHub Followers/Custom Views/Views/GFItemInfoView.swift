@@ -18,14 +18,17 @@ class GFItemInfoView: UIView {
     let titleLable          = GFTitleLable(textAlignment: .right, fontSize: 14)
     let countLable          = GFTitleLable(textAlignment: .center, fontSize: 14)
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     private func configure() {
         addSubviews(symbolImageView, titleLable, countLable)
@@ -51,6 +54,7 @@ class GFItemInfoView: UIView {
             countLable.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
+    
     
     func set(itemInfoType: ItemInfoType, withCount count: Int) {
         switch itemInfoType {

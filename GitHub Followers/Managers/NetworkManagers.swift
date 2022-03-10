@@ -8,11 +8,13 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared   = NetworkManager()
     private let baseUrl = "https://api.github.com/users/"
     let cache           = NSCache<NSString, UIImage>()
     
     private init() { }
+    
     
     func getFollower(for username: String, page: Int, completed: @escaping(Result<[Follower], GFError>) -> ()) {
         let endPoint = baseUrl + "\(username)/followers?per_page=100&page=\(page)"
@@ -113,7 +115,6 @@ class NetworkManager {
                       completed(nil)
                       return
                   }
-            
             
             self.cache.setObject(image, forKey: cacheKey)
             completed(image)

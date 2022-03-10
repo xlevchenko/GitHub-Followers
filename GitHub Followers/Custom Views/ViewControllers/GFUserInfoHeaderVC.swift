@@ -18,45 +18,38 @@ class GFUserInfoHeaderVC: UIViewController {
     
     var user: User!
     
+    
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubview()
+        view.addSubviews(avatarImageView, userNameLable, nameLable, locationImageView, locationLable, bioLable)
+        
         layoutUI()
         configureUIElements()
     }
     
+    
     func configureUIElements() {
-        downloadAvatarImage()
-        userNameLable.text          = user.login
-        nameLable.text              = user.name ?? ""
-        locationLable.text          = user.location ?? "No Location"
-        bioLable.text               = user.bio ?? "No bio available"
-        bioLable.numberOfLines      = 3
-        
-        locationImageView.image     = SFSymbols.location
-        locationImageView.tintColor = .secondaryLabel
-        
+        avatarImageView.downloadImage(fromURL: user.avatarUrl)
+        userNameLable.text              = user.login
+        nameLable.text                  = user.name ?? ""
+        locationLable.text              = user.location ?? "No Location"
+        bioLable.text                   = user.bio ?? "No bio available"
+        bioLable.numberOfLines          = 3
+        locationImageView.image         = SFSymbols.location
+        locationImageView.tintColor     = .secondaryLabel
     }
     
-    func downloadAvatarImage() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
-    }
-    
-    func addSubview() {
-        view.addSubviews(avatarImageView, userNameLable, nameLable, locationImageView, locationLable, bioLable)
-    }
     
     func layoutUI() {
         let padding: CGFloat = 20
@@ -93,8 +86,6 @@ class GFUserInfoHeaderVC: UIViewController {
             bioLable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             bioLable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bioLable.heightAnchor.constraint(equalToConstant: 90)
-            
-            
         ])
     }
 }

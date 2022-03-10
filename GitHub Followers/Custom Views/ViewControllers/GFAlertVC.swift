@@ -14,20 +14,20 @@ class GFAlertVC: UIViewController {
     let messageLable    = GFBodyLable(textAlignment: .center)
     let actionButtom    = GFButton(backgraundColor: .systemPink, title: "Ok")
     
-    
     var alertTitle: String?
     var message: String?
     var buttomTitle: String?
     
     var padding: CGFloat = 20
     
+    
     init(alertTitle: String, message: String, buttomTitle: String) {
         super.init(nibName: nil, bundle: nil)
-        
         self.alertTitle     = alertTitle
         self.message        = message
         self.buttomTitle    = buttomTitle
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -38,11 +38,13 @@ class GFAlertVC: UIViewController {
         super.viewDidLoad()
         view.addSubviews(containerView, titleLable, actionButtom, messageLable)
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
         configureContainerView()
         configureTitleLable()
         configureActionButtom()
         configureMessageLable()
     }
+    
     
     func configureContainerView() {
         NSLayoutConstraint.activate([
@@ -52,6 +54,7 @@ class GFAlertVC: UIViewController {
             containerView.heightAnchor.constraint(equalToConstant: 220)
         ])
     }
+    
     
     func configureTitleLable() {
         titleLable.text = alertTitle ?? "Something went wrong"
@@ -63,6 +66,7 @@ class GFAlertVC: UIViewController {
             titleLable.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
+    
     
     func configureActionButtom() {
         actionButtom.setTitle(buttomTitle ?? "Ok", for: .normal)
@@ -76,6 +80,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
+    
     func configureMessageLable() {
         messageLable.text           = message ?? "Unable  to complete requs"
         messageLable.numberOfLines  = 4
@@ -87,6 +92,7 @@ class GFAlertVC: UIViewController {
             messageLable.bottomAnchor.constraint(equalTo: actionButtom.topAnchor, constant: -12)
         ])
     }
+    
     
     @objc func dismissVC() {
         dismiss(animated: true)
