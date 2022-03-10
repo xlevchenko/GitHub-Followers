@@ -54,7 +54,6 @@ class FavoritesListVC: GFDataLoadingVC {
                         self.view.bringSubviewToFront(self.tableView)
                     }
                 }
-                
             case .failure(let error):
                 self.presentAlertOnMainTread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
@@ -92,7 +91,6 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
                 tableView.deleteRows(at: [indexPath], with: .left)
                 return
             }
-            
             self.presentAlertOnMainTread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
         }
     }
